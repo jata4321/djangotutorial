@@ -30,5 +30,6 @@ def vote(request, question_id):
         selected_choice.save()
     return HttpResponseRedirect(reverse("polls:results", args=(question_id,)))
 
-
+def home(request):
+    return render(request, 'polls/home.html')
 # Create your views here.
