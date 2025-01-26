@@ -8,8 +8,6 @@ from wildewidgets import HorizontalStackedBarChart
 from .models import Question, Choice
 
 class IndexView(generic.ListView):
-    template_name = 'polls/index.html'
-    context_object_name = 'latest_question_list'
 
     def get_queryset(self):
         """Return the last five published questions."""
@@ -24,6 +22,12 @@ class IndexView(generic.ListView):
         kwargs['barchart'] = barchart
         return super().get_context_data(**kwargs)
 
+    template_name = 'polls/index.html'
+    context_object_name = 'latest_question_list'
+
+
+
+
 
 class DetailView(generic.DetailView):
     model = Question
@@ -36,7 +40,7 @@ class ResultsView(generic.DetailView):
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
-        selected_choice = question.choice_set.get(pk=request.POST['choice'])
+        selected_choice = question.choices.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         return render(request, 'polls/detail.html', {'question': question,
                                                      'error_message': "You didn't select a choice."})
