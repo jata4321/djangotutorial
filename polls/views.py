@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
+from wildewidgets import HorizontalStackedBarChart
 
 from .models import Question, Choice
 
@@ -14,13 +15,23 @@ class IndexView(generic.ListView):
         """Return the last five published questions."""
         return Question.objects.order_by('-publication_date')[:5]
 
+    def get_context_data(self, **kwargs):
+        barchart = HorizontalStackedBarChart(title="New Customers Through July", money=True, legend=True, width='500', color=False)
+        barchart.set_categories(["January", "February", "March", "April", "May", "June", "July"])
+        barchart.add_dataset([75, 44, 92, 11, 44, 95, 35], "Central")
+        barchart.add_dataset([41, 92, 18, 35, 73, 87, 92], "Eastside")
+        barchart.add_dataset([87, 21, 94, 13, 90, 13, 65], "Westside")
+        kwargs['barchart'] = barchart
+        return super().get_context_data(**kwargs)
+
+
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
 
-def results(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, "polls/results.html", {'question': question})
+class ResultsView(generic.DetailView):
+    model = Question
+    template_name = 'polls/results.html'
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
