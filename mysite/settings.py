@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR: Path = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,16 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
-    'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
+    'users.apps.UsersConfig',
+    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -122,8 +121,9 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = 'static/'
+
 STATICFILES_DIRS = [
-    BASE_DIR / "static/",
+    BASE_DIR/ 'polls/static',
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

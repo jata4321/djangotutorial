@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Internet Newspaper</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background: #555;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+        .article {
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .article:hover {
+            transform: translateY(-5px);
+        }
+        .latest-news ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .latest-news li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-2">
+        <nav class="navbar navbar-expand-lg bg-light mb-4">
+
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <header class="d-flex justify-content-center align-items-center mb-4">
+            <h1 class="display-4 mb-0">The Daily Chronicle</h1>
+            <p class="text-muted">Published daily since 1900</p>
+        </header>
+
+        <section class="hero">
+            <h2 class="display-6 mb-3">Breaking News: Local Economy Shows Signs of Recovery</h2>
+            <p class="lead">Read our exclusive report on the latest economic indicators.</p>
+        </section>
+
+        <section class="featured-articles row g-4">
+            <article class="col-md-4 article">
+                <div class="card h-100">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Article Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Climate Change Impact on Coastal Cities</h5>
+                        <p class="card-text">Scientists warn of rising sea levels and increased storm frequency.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </article>
+            <article class="col-md-4 article">
+                <div class="card h-100">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Article Image">
+                    <div class="card-body">
+                        <h5 class="card-title">New Technology Revolutionizes Renewable Energy</h5>
+                        <p class="card-text">Breakthrough in solar panel efficiency could power entire cities.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </article>
+            <article class="col-md-4 article">
+                <div class="card h-100">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Article Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Local Artist Wins Prestigious Award</h5>
+                        <p class="card-text">Painter recognized for her contributions to contemporary art.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="latest-news mt-5">
+            <h2 class="mb-3">Latest News</h2>
+            <ul>
+                <li>City Council Approves New Budget</li>
+                <li>Weather Alert Issued for Heavy Rainfall</li>
+                <li>School Board Votes on New Curriculum Changes</li>
+            </ul>
+        </section>
+
+        <footer class="bg-dark text-light py-4 fixed-bottom">
+            <p>&copy; 2023 The Daily Chronicle. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

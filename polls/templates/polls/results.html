@@ -8,7 +8,7 @@
 <body>
 <h1>Results</h1>
 <ul>
-    {% for choice in question.choice_set.all %}
+    {% for choice in question.choices.all %}
         <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
     {% endfor %}
 </ul>

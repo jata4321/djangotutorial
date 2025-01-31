@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-
 {% load static %}
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Polls Application</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
         <h1>Welcome to the Polls Application!</h1>
         <nav>
             <ul class="nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="{% url 'polls:home' %}">Home</a></li>
+                <li><a href="{% url 'polls:home' %}">Results</a></li>
             </ul>
         </nav>
     </header>
@@ -37,6 +36,7 @@
         </section>
         {% endif %}
     </main>
+{#    {{ barchart }}#}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     {% block extra_footer_js %}
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
